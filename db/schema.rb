@@ -46,14 +46,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_092926) do
     t.index ["record_id"], name: "index_addresses_on_record_id"
   end
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "text", null: false
-    t.integer "genre_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "explanation", null: false
@@ -63,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_092926) do
     t.integer "delivery_area_id", null: false
     t.integer "delivery_day_id", null: false
     t.integer "price", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"

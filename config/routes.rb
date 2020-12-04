@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :records, only: [:index, :create]
   end
+  resources :managements, only: [:index]
 end

@@ -103,5 +103,10 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
+    it "sexは--では登録できない" do
+      @user.sex_id = 1
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Sex Select")
+    end
   end
 end

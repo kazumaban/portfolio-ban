@@ -9,11 +9,11 @@ class User < ApplicationRecord
   has_many   :items
   has_many   :records
 
+  validates :sex_id, numericality: { other_than: 1 , message: 'Select'}
 
   with_options presence: true do
     validates :nickname
     validates :birthday
-    validates :sex, numericality: { other_than: 1 , message: 'Select'}
 
     with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' } do
       validates :firstname

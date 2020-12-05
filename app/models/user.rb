@@ -1,15 +1,19 @@
 class User < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :sex
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :items
-  has_many :records
+  has_many   :items
+  has_many   :records
+
 
   with_options presence: true do
     validates :nickname
     validates :birthday
+    validates :sex, numericality: { other_than: 1 , message: 'Select'}
 
     with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' } do
       validates :firstname

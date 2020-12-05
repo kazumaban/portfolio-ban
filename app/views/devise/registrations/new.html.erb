@@ -21,6 +21,20 @@
     </div>
     <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
   </div>
+  
+  <%#性別%>
+      <div class="items-detail">
+      <div class="weight-bold-text"></div>
+      <div class="form">
+        <div class="weight-bold-text">
+          性別
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"user-sex"}) %>
+      </div>
+    </div>
+
+  <%#性別%>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">メールアドレス</label>

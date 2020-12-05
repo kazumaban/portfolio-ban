@@ -3,15 +3,16 @@
 ## users テーブル
 
 | Column               | Type   | Options                   |
-| ---------------------| ------ | --------------------------|
-| nickname             | string | null: false               |
-| firstname            | string | null: false               |
-| lastname             | string | null: false               |
-| firstname_katakana   | string | null: false               |
-| lastname_katakana    | string | null: false               |
-| email                | string | null: false, unique: true |
-| encrypted_password   | string | null: false               |
-| birthday             | date   | null: false               |
+| ---------------------| ------  | --------------------------|
+| nickname             | string  | null: false               |
+| firstname            | string  | null: false               |
+| lastname             | string  | null: false               |
+| firstname_katakana   | string  | null: false               |
+| lastname_katakana    | string  | null: false               |
+| email                | string  | null: false, unique: true |
+| encrypted_password   | string  | null: false               |
+| birthday             | date    | null: false               |
+| sex_id               | integer | null: false               |
 
 
 ### Association

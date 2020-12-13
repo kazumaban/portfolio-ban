@@ -17,8 +17,10 @@
 
 ### Association
 
-- has_many :items
-- has_many :records
+- has_many   :items
+- has_many   :records
+- belongs_to :management
+
 
 ## items テーブル
 
@@ -70,5 +72,22 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- has_one    :address
+- belongs_to :management
+
+## managements テーブル
+
+| Column            | Type       | Options                        |
+| ------------------| ---------- | ------------------------------ |
+| user              | references | null: false, foreign_key: true |
+| record            | references | null: false, foreign_key: true |
+| age               | integer    | null: false                    |
+| gender            | integer    | null: false                    |
+| unit_price        | integer    | null: false                    |
+
+### Association
+
+- has_many :users
+- has_many :items
+
 

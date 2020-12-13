@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many   :items
   has_many   :records
+  belongs_to :management
 
   validates :sex_id, numericality: { other_than: 1 , message: 'Select'}
 

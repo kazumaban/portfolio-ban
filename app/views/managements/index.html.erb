@@ -6,7 +6,14 @@
   </header>
   <div class="managements-main">
     <h2 class="managements-title">管理画面</h2>
-    <%= form_with model:@item, url: items_path, local: true do |f| %>
+    <%#= form_with model:@managements, url: managements_path, local: true do |f| %>
+
+    <div class="managements-age">
+    <%#=Management.count_by_sql "SELECT * from managements"%>
+    <%#=Management.find_by_sql "SELECT * from managements"%>
+    <%= @managements %>
+
+    </div>
 
     <%# 下部ボタン %>
     <div class="managements-btn-contents">
@@ -14,7 +21,7 @@
     </div>
     <%# /下部ボタン %>
   </div>
-  <% end %>
+  <%# end %>
 
   <footer class="managements-footer">
     <ul class="menu">

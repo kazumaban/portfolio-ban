@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_094807) do
+ActiveRecord::Schema.define(version: 2020_12_07_020007) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2020_12_04_094807) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "managements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "age", null: false
+    t.integer "gender", null: false
+    t.integer "unit_price", null: false
+    t.bigint "user_id"
+    t.bigint "record_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_id"], name: "index_managements_on_record_id"
+    t.index ["user_id"], name: "index_managements_on_user_id"
+  end
+
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "item_id"
@@ -92,6 +104,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_094807) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "records"
   add_foreign_key "items", "users"
+  add_foreign_key "managements", "records"
+  add_foreign_key "managements", "users"
   add_foreign_key "records", "items"
   add_foreign_key "records", "users"
 end

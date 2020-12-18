@@ -9,9 +9,16 @@
     <%#= form_with model:@managements, url: managements_path, local: true do |f| %>
 
     <div class="managements-age">
-    <%#=Management.count_by_sql "SELECT * from managements"%>
-    <%#=Management.find_by_sql "SELECT * from managements"%>
-    <%= @managements %>
+    <%# query = "SELECT * FROM managements ORDER BY created_at DESC" %><%# 保存された最新順に並び替え %>
+    <%#= @managements = Management.find_by_sql(query) %><%#find_by_sqlで（）を取得する%>
+    
+    <% @management = Management.pluck('created_at', 'unit_price')%>
+    <%= bar_chart @management%>
+
+    <% query = "SELECT created_at from managements" %><%#マネジメントテーブルから価格を選択%>
+    <%= @managements = Management.find_by_sql(query) %><%#価格だけを表示%>
+    <%= line_chart @managements%>
+    <%#= query = "SELECT SUM(unit_price) FROM managements" %><%#マネジメントテーブルから価格を合計する%>
 
     </div>
 

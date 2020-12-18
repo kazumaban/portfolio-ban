@@ -16,8 +16,8 @@ class RecordsController < ApplicationController
     if @shopping.valid?
        pay_item
        @shopping.save
-       redirect_to root_path
        @management = Management.new
+       redirect_to root_path
     else
       render :index
     end

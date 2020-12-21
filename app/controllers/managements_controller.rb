@@ -1,9 +1,9 @@
 class ManagementsController < ApplicationController
 
   def index
-    query = "SELECT * FROM managements"
-    @managements = Management.find_by_sql(query)
+    @managements = Management.all
   end
+
 
   def update
     @management.update(management_params)

@@ -64,3 +64,5 @@ gem 'active_hash'
 gem 'payjp'
 gem 'rename'
 gem "aws-sdk-s3", require: false
+gem "chartkick"
+gem 'groupdate'

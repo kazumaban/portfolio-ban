@@ -1,6 +1,10 @@
 class Management < ApplicationRecord
 
-  has_many :users
-  has_many :records
+belongs_to :user
+belongs_to :record
+
+def chart_date
+  order.where(amount:100).pluck('created_at', 'unit_price')
+end
 
 end
